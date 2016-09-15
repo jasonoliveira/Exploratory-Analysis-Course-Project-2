@@ -15,8 +15,12 @@ if(!exists("SCC")){
 ## aggregate total emissions by year
 plotdata <- aggregate(Emissions ~ year,NEI, sum)
 
+## Take log10 to make the scale more presentable
+plotdata$Emissions <- log10(plotdata$Emissions) 
+
 ## plot as basic x,y
-with(plotdata,plot(year,log10(Emissions),pch=15, col="blue",xlim=c(1999,2008), xlab="Year of Reading", ylab="Log10 of Total PM2.5 Emissions in Tons"))
+plot(plotdata,type="o",pch=15, col="tomato2",xlim=c(1999,2008), xlab="Year of Reading", ylab="Log10 of Total PM2.5 Emissions in Tons")
+
 
 ## copy screen device to png file device
 dev.copy(png, file="./plot1.png", width=480, height=480)
