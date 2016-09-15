@@ -1,5 +1,5 @@
 ## Read RDS Files
-setWD("./R/data")
+setwd("./R/data")
 
 if (!exists("NEI")){
         NEI <- readRDS("summarySCC_PM25.rds")
